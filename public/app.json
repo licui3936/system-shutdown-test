@@ -1,0 +1,59 @@
+{
+    "startup_app": {
+        "devtools_port": 8686
+    },
+    "platform": {
+        "uuid": "platform_system_shutdown_test",
+        "name": "platform_system_shutdown_test",
+        "applicationIcon": "http://localhost:5555/favicon.ico",
+        "autoShow": false,
+        "defaultWindowOptions": {
+            "alphaMask": {"red":255, "green":255, "blue":255},
+            "contextMenu": true
+        }
+    },
+    "snapshot": {
+        "windows": [
+            {
+                "defaultWidth": 600,
+                "defaultHeight": 600,
+                "layout": {
+                    "content": [
+                        {
+                            "type": "stack",
+                            "content": [
+                                {
+                                    "type": "component",
+                                    "componentName": "view",
+                                    "componentState": {
+                                        "name": "component_A1",
+                                        "processAffinity": "ps_1",
+                                        "url": "http://localhost:5555/index.html"
+                                    }
+                                },
+                                {
+                                    "type": "component",
+                                    "componentName": "view",
+                                    "componentState": {
+                                        "name": "component_A2",
+                                        "url": "https://cdn.openfin.co/embed-web/chart.html"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "runtime": {
+        "arguments": "--disable-gpu --remote-debugging-port= --v=1",
+        "version": "canary"
+    },
+    "shortcut": {
+        "company": "OpenFin",
+        "name": "System Shutdown Example",
+        "description": "Openfin System Shutdown",
+        "icon": "http://localhost:5555/favicon.ico"
+    }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="js/main.js"></script>
+</head>
+<body class="main-window">
+    <div id="of-frame-main">
+        <div id="title-bar">
+            <div class="title-bar-draggable">
+                <div id="title">Platform Window</div>
+            </div>
+            <div id="buttons-wrapper">
+                <div class="button" id="minimize-button" onclick="fin.me.minimize().catch(console.error)"></div>
+                <div class="button" id="expand-button" onclick="fin.me.maximize()"></div>
+                <div class="button" id="close-button" onclick="fin.me.close().catch(console.error)"></div>
+            </div>
+        </div>
+            <div id="body-container">
+                <div id="layout-container"></div>
+            </div>
+    </div>
+
+</body>
+
+</html>

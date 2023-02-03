@@ -1,0 +1,16 @@
+{
+  "name": "app-template",
+  "version": "0.0.0",
+  "devDependencies": {
+    "@types/openfin": "latest",
+    "hadouken-js-adapter": "latest"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "bufferutil": "^4.0.3",
+    "http-server": "^0.12.3",
+    "log4javascript": "^1.4.16",
+    "openfin-notifications": "^1.9.0",
+    "utf-8-validate": "^5.0.5"
+  }
+}
