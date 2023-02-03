@@ -1,15 +1,26 @@
 {
-    "startup_app": {
-        "devtools_port": 8686
-    },
     "platform": {
         "uuid": "platform_system_shutdown_test",
         "name": "platform_system_shutdown_test",
-        "applicationIcon": "http://localhost:5555/favicon.ico",
+        "applicationIcon": "http://localhost:5555/assets/favicon.ico",
         "autoShow": false,
+        "permissions": {
+            "System": {
+                "launchExternalProcess": true
+            }
+        },
         "defaultWindowOptions": {
-            "alphaMask": {"red":255, "green":255, "blue":255},
             "contextMenu": true
+        },
+        "defaultViewOptions": {
+            "contextMenuSettings": {
+                "enable": true
+            },
+            "permissions": {
+                "System": {
+                    "launchExternalProcess": true
+                }
+            }
         }
     },
     "snapshot": {
@@ -36,7 +47,7 @@
                                     "componentName": "view",
                                     "componentState": {
                                         "name": "component_A2",
-                                        "url": "https://cdn.openfin.co/embed-web/chart.html"
+                                        "url": "https://examples.com"
                                     }
                                 }
                             ]
@@ -48,12 +59,20 @@
     },
     "runtime": {
         "arguments": "--disable-gpu --remote-debugging-port= --v=1",
-        "version": "canary"
+        "version": "31.110.74.21"
     },
     "shortcut": {
         "company": "OpenFin",
         "name": "System Shutdown Example",
         "description": "Openfin System Shutdown",
-        "icon": "http://localhost:5555/favicon.ico"
-    }
+        "icon": "http://localhost:5555/assets/favicon.ico"
+    },
+    "appAssets": [
+		{
+		  "src": "http://localhost:5555/assets/messageWin.zip",
+		  "alias": "messageWin",
+		  "target": "SendMessage.exe",
+		  "version": "1.0.0"
+		}
+	]
 }

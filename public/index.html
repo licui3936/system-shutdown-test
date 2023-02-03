@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>First View</title>
+    <title>Main View</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -14,17 +14,21 @@
         <img src="assets/logo.svg">
     </div>
     <div>
-        <h1>Hello, world!</h1>
-        <p>This is a template for an OpenFin application.</p>
+        <h1>System Shutdown Test</h1>
         <p id="version-number-container">
             Current version: <span id="of-version"></span>
         </p>
-        <input type="text" value="Hello World" id="myInput">
+        <button id="message-window">Launch Message Window</button>
+        <p>Note: This message window is used to test system shutdown as a dev tool. QA should use logout or system shutdown to do acutal tests to verify.</p>
+        <br />
         <button id="platform-window">Platform Window</button>
+        <button id="platform-window-handler">Platform Window with shutdown handler</button>
+        <br />
         <button id="child-window">Child Window</button>
+        <button id="child-window-handler">Child Window with shutdown handler</button>
+        <br />
         <button id="new-view">Add view</button>
-        <button id="nonOFwindow">non OF window</button>
-      
+        <button id="new-view-handler">Add view with shutdown handler</button>
     </div>
     <script src="js/index.js"></script>
 </body>
