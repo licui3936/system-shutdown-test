@@ -31,9 +31,10 @@ async function initialise() {
         e.preventDefault();
 
         const pltfm = fin.Platform.getCurrentSync();
+        const time = Date.now();
         await pltfm.createWindow({
             url: "http://localhost:5555/main.html",
-            name: "Dynamic Generated Platform Window",
+            name: "platform_window_" + time,
             contextMenu: true,
             contextMenuSettings: { enable: true, devtools: true, reload: true },
             processAffinity: "platformProcess",
@@ -63,9 +64,10 @@ async function initialise() {
         e.preventDefault();
 
         const pltfm = fin.Platform.getCurrentSync();
-        await pltfm.createWindow({
+        const time = Date.now();
+        const win = await pltfm.createWindow({
             url: "http://localhost:5555/main.html",
-            name: "Dynamic Generated Platform Window",
+            name: "platform_window_" + time,
             contextMenu: true,
             contextMenuSettings: { enable: true, devtools: true, reload: true },
             processAffinity: "platformProcess",
@@ -87,18 +89,22 @@ async function initialise() {
                 ]
             }
         });
-        fin.System.registerShutdownHandler(proceed => {
-            console.log('do cleanup in platform window');
-            proceed();
-        })
+        const code = `
+            console.log(JSON.stringify(fin.me.identity));
+            fin.System.registerShutdownHandler(proceed => {
+                console.log('do cleanup in platform window');
+                proceed();
+            })
+        `;
+        await win.executeJavaScript(code);
     });
 
     const childWindowBtn = document.querySelector('#child-window');
     childWindowBtn.addEventListener('click', async (e) => {
-        let time = Date.now();
+        const time = Date.now();
         await fin.Window.create(
             {
-                name: 'child_' + time,
+                name: 'child_window' + time,
                 autoShow: true,
                 frame: true,
                 url: 'http://localhost:5555/child.html', // The URL of the View
@@ -119,10 +125,10 @@ async function initialise() {
 
     const childWindowHandlerBtn = document.querySelector('#child-window-handler');
     childWindowHandlerBtn.addEventListener('click', async (e) => {
-        let time = Date.now();
-        await fin.Window.create(
+        const time = Date.now();
+        const win = await fin.Window.create(
             {
-                name: 'child_' + time,
+                name: 'child_window' + time,
                 autoShow: true,
                 frame: true,
                 url: 'http://localhost:5555/child.html', // The URL of the View
@@ -139,10 +145,14 @@ async function initialise() {
                     ]
                 }
             });
-        fin.System.registerShutdownHandler(proceed => {
-            console.log('do cleanup in child window');
-            proceed();
-        })
+        const code = `
+            console.log(JSON.stringify(fin.me.identity));
+            fin.System.registerShutdownHandler(proceed => {
+                console.log('do cleanup in child window');
+                proceed();
+            })
+        `;
+        await win.executeJavaScript(code);
     });
 
     const newViewBtn = document.querySelector('#new-view');
@@ -158,10 +168,14 @@ async function initialise() {
         e.preventDefault();
 
         const pltfm = fin.Platform.getCurrentSync();
-        await pltfm.createView({ url: "http://google.com" }, win.identity, fin.me.identity);
-        fin.System.registerShutdownHandler(proceed => {
-            console.log('do cleanup in view');
-            proceed();
-        })
+        const view = await pltfm.createView({ url: "http://google.com" }, win.identity, fin.me.identity);
+        const code = `
+            console.log(JSON.stringify(fin.me.identity));
+            fin.System.registerShutdownHandler(proceed => {
+                console.log('do cleanup in view');
+                proceed();
+            })
+        `;
+        await view.executeJavaScript(code);
     });
 }
