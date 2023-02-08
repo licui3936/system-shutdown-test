@@ -10,9 +10,6 @@
 </head>
 
 <body style="background-color: rgb(255,255,255);">
-    <div class="logo-container">
-        <img src="assets/logo.svg">
-    </div>
     <div>
         <h1>System Shutdown Test</h1>
         <p id="version-number-container">
@@ -21,12 +18,15 @@
         <button id="message-window">Launch Message Window</button>
         <p>Note: This message window is used to test system shutdown as a dev tool. QA should use logout or system shutdown to do acutal tests to verify.</p>
         <br />
+        <p>1. Platform Window</p>
         <button id="platform-window">Platform Window</button>
         <button id="platform-window-handler">Platform Window with shutdown handler</button>
         <br />
+        <p>2. Child Window</p>
         <button id="child-window">Child Window</button>
         <button id="child-window-handler">Child Window with shutdown handler</button>
         <br />
+        <p>3. View</p>
         <button id="new-view">Add view</button>
         <button id="new-view-handler">Add view with shutdown handler</button>
     </div>

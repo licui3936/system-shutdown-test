@@ -58,8 +58,8 @@
         ]
     },
     "runtime": {
-        "arguments": "--disable-gpu --remote-debugging-port= --v=1",
-        "version": "31.110.74.21"
+        "arguments": "--disable-gpu --inspect --v=1",
+        "version": "31.110.74.31"
     },
     "shortcut": {
         "company": "OpenFin",
