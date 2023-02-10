@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "devDependencies": {
     "@types/openfin": "latest",
-    "hadouken-js-adapter": "latest"
+    "openfin-adapter": "^29.73.14"
   },
   "license": "Apache-2.0",
   "dependencies": {

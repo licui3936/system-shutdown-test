@@ -91,9 +91,9 @@ async function initialise() {
         });
         const code = `
             console.log(JSON.stringify(fin.me.identity));
-            fin.System.registerShutdownHandler(proceed => {
+            fin.System.registerShutdownHandler(shutdownEvent => {
                 console.log('do cleanup in platform window');
-                proceed();
+                shutdownEvent.proceed();
             })
         `;
         await win.executeJavaScript(code);
@@ -104,7 +104,7 @@ async function initialise() {
         const time = Date.now();
         await fin.Window.create(
             {
-                name: 'child_window' + time,
+                name: 'child_window_' + time,
                 autoShow: true,
                 frame: true,
                 url: 'http://localhost:5555/child.html', // The URL of the View
@@ -128,7 +128,7 @@ async function initialise() {
         const time = Date.now();
         const win = await fin.Window.create(
             {
-                name: 'child_window' + time,
+                name: 'child_window_' + time,
                 autoShow: true,
                 frame: true,
                 url: 'http://localhost:5555/child.html', // The URL of the View
@@ -147,9 +147,9 @@ async function initialise() {
             });
         const code = `
             console.log(JSON.stringify(fin.me.identity));
-            fin.System.registerShutdownHandler(proceed => {
+            fin.System.registerShutdownHandler(shutdownEvent => {
                 console.log('do cleanup in child window');
-                proceed();
+                shutdownEvent.proceed();
             })
         `;
         await win.executeJavaScript(code);
@@ -171,9 +171,9 @@ async function initialise() {
         const view = await pltfm.createView({ url: "http://google.com" }, win.identity, fin.me.identity);
         const code = `
             console.log(JSON.stringify(fin.me.identity));
-            fin.System.registerShutdownHandler(proceed => {
+            fin.System.registerShutdownHandler(shutdownEvent => {
                 console.log('do cleanup in view');
-                proceed();
+                shutdownEvent.proceed();
             })
         `;
         await view.executeJavaScript(code);

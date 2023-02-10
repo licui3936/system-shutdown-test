@@ -58,8 +58,9 @@
         ]
     },
     "runtime": {
-        "arguments": "--disable-gpu --inspect --v=1",
-        "version": "31.110.74.31"
+        "arguments": "--disable-gpu --inspect --v=1 --shutdown-timeout=10000",
+        "version": "31.111.74.3",
+		"version1": "canary"
     },
     "shortcut": {
         "company": "OpenFin",
