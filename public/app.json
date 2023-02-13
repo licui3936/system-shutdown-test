@@ -58,7 +58,7 @@
         ]
     },
     "runtime": {
-        "arguments": "--disable-gpu --inspect --v=1 --shutdown-timeout=10000",
+        "arguments": "--disable-gpu --inspect --v=1",
         "version": "31.111.74.3",
 		"version1": "canary"
     },

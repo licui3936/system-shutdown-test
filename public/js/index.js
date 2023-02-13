@@ -80,7 +80,7 @@ async function initialise() {
                                 type: 'component',
                                 componentName: 'view',
                                 componentState: {
-                                    name: 'child_view',
+                                    name: 'child_view_' + time,
                                     url: 'http://localhost:5555/child.html'
                                 }
                             }
