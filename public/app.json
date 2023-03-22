@@ -10,7 +10,9 @@
             }
         },
         "defaultWindowOptions": {
-            "contextMenu": true
+            "contextMenu": true,
+            "defaultWidth": 600,
+            "defaultHeight": 600
         },
         "defaultViewOptions": {
             "contextMenuSettings": {
@@ -59,8 +61,7 @@
     },
     "runtime": {
         "arguments": "--disable-gpu --inspect --v=1",
-        "version": "31.111.74.3",
-		"version1": "canary"
+		"version": "canary"
     },
     "shortcut": {
         "company": "OpenFin",
